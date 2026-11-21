@@ -4,12 +4,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudySync | Student Productivity</title>
+  <meta name="theme-color" content="#211B2B">
+  <meta name="description" content="StudySync - Your smart academic productivity platform.">
+  <title>StudySync | Smart Student Productivity</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="app">
+
+  <!-- AUTHENTICATION SCREEN -->
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+
+      <h1 class="brand">Study<span>Sync</span></h1>
+      <p class="eyebrow">YOUR ACADEMIC SPACE</p>
+
+      <h2 id="authTitle">Welcome back</h2>
+      <p id="authDescription">
+        Sign in to continue your learning journey.
+      </p>
+
+      <form id="authForm">
+        <input
+          id="authName"
+          type="text"
+          placeholder="Your full name"
+          autocomplete="name"
+          style="display:none;"
+        >
+
+        <input
+          id="authEmail"
+          type="email"
+          placeholder="Email address"
+          autocomplete="email"
+          required
+        >
+
+        <input
+          id="authPassword"
+          type="password"
+          placeholder="Password (minimum 6 characters)"
+          autocomplete="current-password"
+          minlength="6"
+          required
+        >
+
+        <button id="authSubmit" type="submit">
+          Sign In
+        </button>
+      </form>
+
+      <p id="authMessage" role="status"></p>
+
+      <p class="auth-switch">
+        New to StudySync?
+        <button type="button" id="authToggle">
+          Create account
+        </button>
+      </p>
+
+    </div>
+  </div>
+
+
+  <!-- MAIN APPLICATION -->
+  <div class="app" id="appContainer">
+
+    <!-- SIDEBAR -->
     <aside class="sidebar">
+
       <h2 class="brand">Study<span>Sync</span></h2>
       <p class="tagline">YOUR ACADEMIC COMPANION</p>
 
@@ -23,75 +89,120 @@
       <div class="sidebar-bottom">
         <p>STAY FOCUSED.</p>
         <small>Build your future, one day at a time.</small>
+
+        <div class="account-info">
+          <p id="userDisplayName">Student</p>
+          <small id="userDisplayEmail"></small>
+          <button id="logoutBtn" type="button">Sign Out</button>
+        </div>
       </div>
+
     </aside>
 
+
+    <!-- MAIN CONTENT -->
     <main class="main-content">
+
+      <!-- HEADER -->
       <header class="topbar">
+
         <div>
           <p class="eyebrow">STUDENT WORKSPACE</p>
           <h1>Good day, Scholar.</h1>
-          <p class="subheading">Make today count. Your goals are waiting.</p>
+          <p class="subheading">
+            Make today count. Your goals are waiting.
+          </p>
         </div>
+
         <div class="date-label" id="today"></div>
+
       </header>
 
+
+      <!-- DASHBOARD -->
       <section id="dashboard">
+
         <div class="section-heading">
           <div>
             <p class="eyebrow">OVERVIEW</p>
             <h2>Your academic dashboard</h2>
           </div>
+
           <span class="status">● YOUR SPACE</span>
         </div>
 
+
         <div class="stats-grid">
+
           <article class="stat-card">
             <p>Total Tasks</p>
             <h3 id="totalTasks">0</h3>
             <small>All your study tasks</small>
           </article>
+
           <article class="stat-card">
             <p>Completed</p>
             <h3 id="completedTasks">0</h3>
             <small>Tasks you've finished</small>
           </article>
+
           <article class="stat-card">
             <p>Pending</p>
             <h3 id="pendingTasks">0</h3>
             <small>Tasks still to do</small>
           </article>
+
           <article class="stat-card highlight">
             <p>Completion Rate</p>
             <h3 id="completionRate">0%</h3>
             <small>Your overall progress</small>
           </article>
+
         </div>
 
+
+        <!-- PROGRESS -->
         <article class="progress-card">
+
           <div class="progress-heading">
             <div>
               <p class="eyebrow">YOUR JOURNEY</p>
               <h3>Overall progress</h3>
             </div>
+
             <span id="progressText">0% completed</span>
           </div>
+
           <div class="progress-track">
             <div id="progressBar"></div>
           </div>
+
         </article>
+
       </section>
 
+
+      <!-- TASK MANAGEMENT -->
       <section id="tasks" class="tasks-section">
+
         <div class="section-heading">
           <div>
             <p class="eyebrow">STAY ORGANIZED</p>
-            <h2>My study tasks</h2>
+            <h2>My Study Tasks</h2>
           </div>
         </div>
 
+
         <form id="taskForm" class="task-form">
-          <input id="taskInput" type="text" placeholder="What do you need to study?" required>
+
+          <input
+            id="taskInput"
+            type="text"
+            placeholder="What do you need to study?"
+            maxlength="150"
+            required
+          >
+
           <select id="subjectInput" required>
             <option value="">Choose subject</option>
             <option>Mathematics</option>
@@ -100,41 +211,81 @@
             <option>English</option>
             <option>Other</option>
           </select>
-          <input id="deadlineInput" type="date" required>
+
+          <input
+            id="deadlineInput"
+            type="date"
+            required
+          >
+
           <button type="submit">+ Add Task</button>
+
         </form>
 
+
         <div id="taskList" class="task-list">
+
           <div class="empty-state">
             <h3>Your study space is ready.</h3>
             <p>Add your first task to get started.</p>
           </div>
+
         </div>
+
       </section>
 
+
+      <!-- STUDY PLANNER -->
       <section id="planner" class="planner-section">
+
         <p class="eyebrow">PLAN WITH PURPOSE</p>
         <h2>Study Planner</h2>
-        <p>Organize your priorities and make every study session count.</p>
-        <a href="#tasks" class="text-link">Create a study task →</a>
+
+        <p>
+          Organize your priorities and make every study session count.
+        </p>
+
+        <a href="#tasks" class="text-link">
+          Create a study task →
+        </a>
+
       </section>
 
+
+      <!-- SUBJECTS -->
       <section id="subjects" class="planner-section">
+
         <p class="eyebrow">YOUR LEARNING AREAS</p>
         <h2>Subjects</h2>
-        <p>Keep your academic responsibilities organized in one place.</p>
+
+        <p>
+          Keep your academic responsibilities organized in one place.
+        </p>
+
       </section>
 
+
+      <!-- FOOTER -->
       <footer>
         <p>StudySync © 2026 · Designed for focused learning.</p>
       </footer>
+
     </main>
+
   </div>
 
+
+  <!-- FIREBASE SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- FIREBASE CONFIGURATION -->
+  <script src="firebase-config.js"></script>
+
+  <!-- APPLICATION LOGIC -->
+  <script src="script.js"></script>
+
 </body>
 </html>
+
