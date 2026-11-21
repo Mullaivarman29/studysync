@@ -462,3 +462,85 @@ footer {
     flex-direction: column;
   }
 }
+/* STUDYSYNC AUTHENTICATION */
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle at top right, #49354E, #211B2B 65%);
+}
+
+.auth-card {
+  width: min(100%, 440px);
+  padding: 42px;
+  border: 1px solid rgba(215,185,177,.22);
+  border-radius: 20px;
+  background: #2D2537;
+  box-shadow: 0 24px 70px rgba(0,0,0,.3);
+}
+
+.auth-card h2 {
+  color: #D7B9B1;
+  font-size: 30px;
+  margin: 28px 0 8px;
+}
+
+.auth-card > p:not(.eyebrow) {
+  color: #BBAAB8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.auth-card form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.auth-card form button {
+  width: 100%;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  color: #BBAAB8;
+  font-size: 13px;
+}
+
+.auth-switch button {
+  background: transparent;
+  color: #D7B9B1;
+  padding: 4px;
+}
+
+#authMessage {
+  color: #D7B9B1;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+#appContainer {
+  display: none;
+}
+
+.account-info {
+  margin-top: 18px;
+}
+
+.account-info p {
+  color: #D7B9B1;
+  font-size: 13px;
+}
+
+.account-info small {
+  color: #BBAAB8;
+  overflow-wrap: anywhere;
+}
+
+.account-info button {
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
